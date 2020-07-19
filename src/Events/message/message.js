@@ -2,6 +2,13 @@ const Event = require('../../Structure/Event');
 
 module.exports = class extends Event {
   
+  constructor(...args) {
+    super(...args, {
+      on: true
+    })
+  }
+  
+  
   async run(message) {
 			const mentionRegex = RegExp(`^<@!${this.client.user.id}>$`);
 			const mentionRegexPrefix = RegExp(`^<@!${this.client.user.id}> `);

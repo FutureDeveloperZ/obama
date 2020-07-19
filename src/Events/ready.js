@@ -9,6 +9,9 @@ module.exports = class extends Event {
   }
   
   run() {
+    console.log(`Logged in as ${this.client.user.tag}`);
+    console.log(`Logged in as ${this.client.commands.size} commands`);
+    console.log(`Logged in as ${this.client.events.size} eve`);
     console.log([
       "Logged in as ${this.client.user.tag}",
       "Loaded ${this.client.commands.size} commands",

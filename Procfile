@@ -1,1 +1,1 @@
-worker: node obama.js
+worker: node ./src/obama.js

@@ -55,7 +55,7 @@ module.exports = class MenuDocsClient extends Client {
 
 	async start(token = this.token) {
 		this.utils.loadCommands();
-		bot.login(token);
+		client.login(token);
 	}
 
 };

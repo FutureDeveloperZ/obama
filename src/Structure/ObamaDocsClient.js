@@ -14,6 +14,8 @@ module.exports = class MenuDocsClient extends Client {
 		this.aliases = new Collection();
 		
 		this.events = new Collection();
+		
+		this.owners = ["282978672711827456"]
 
 		this.utils = new Util(this);
 

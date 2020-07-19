@@ -4,8 +4,9 @@
   
   "token": "NDUxMTI5ODgxNzI0NDUyODY0.XsGsQA.cp2ehBHfj1VKzlFcuBnGuH8EPb8",
   "prefix": "t;",
-  "fAPI": "9c380833a510e7191cb5c4c185a036",
-
+  "owners": ["282978672711827456"],
+  
+  
   "white": "#ffffff",
   "red": "#ff0000",
   "orange": "#ffa500",
@@ -17,9 +18,7 @@
   
   "mainguild": "416713399213359107",
   "juiceid": "ID of the Raspberry juice emoji",
-  "owners": [
-    "282978672711827456"
-    ],
+
   "logsChannel": "logs",
   "modRole": "BOTUSER",
   "muteRole": "Muted",

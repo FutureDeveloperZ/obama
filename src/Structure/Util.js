@@ -59,7 +59,7 @@ module.exports = class Util {
 	}
 
 	async loadCommands() {
-		for await (const commandFile of this.loadFiles(`${this.directory}commands/**/*.js`)) {
+		for await (const commandFile of this.loadFiles(`'${this.directory}commands/**/*.js'`)) {
 			delete require.cache[commandFile];
 			const { name } = path.parse(commandFile);
 			const File = require(commandFile);
@@ -76,7 +76,7 @@ module.exports = class Util {
 	}
 
 	async loadEvents() {
-		for await (const eventFile of this.loadFiles(`${this.directory}Events/**/*.js`)) {
+		for await (const eventFile of this.loadFiles(`'${this.directory}Events/**/*.js'`)) {
 			delete require.cache[eventFile];
 			const { name } = path.parse(eventFile);
 			const File = require(eventFile);

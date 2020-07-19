@@ -55,7 +55,7 @@ module.exports = class MenuDocsClient extends Client {
 
 	async start(token = this.token) {
 		this.utils.loadCommands();
-		super.login(to);
+		//super.login(token);
 	}
 
 };

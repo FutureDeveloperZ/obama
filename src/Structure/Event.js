@@ -1,4 +1,4 @@
-module.export = class Event {
+module.exports = class Event {
   
   constructor(client, name, options = {}) {
     this.name = name

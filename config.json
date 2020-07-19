@@ -1,0 +1,34 @@
+
+{
+  "__NOTICE:": "json FIle",
+  
+  "prefix": "f;",
+  "fAPI": "9c380833a510e7191cb5c4c185a036",
+
+  "white": "#ffffff",
+  "red": "#ff0000",
+  "orange": "#ffa500",
+  "yellow": "#ffff00",
+  "green": "#00ff00",
+  "blue": "#0000ff",
+  "purple": "#551a8b",
+  "cyan": "#46CED5",
+  
+  "mainguild": "416713399213359107",
+  "juiceid": "ID of the Raspberry juice emoji",
+  "ownerid": "282978672711827456",
+  "logsChannel": "logs",
+  "modRole": "BOTUSER",
+  "muteRole": "Muted",
+
+  "blocked": [
+    "blocked",
+    "commands"
+  ],
+  
+  "blockedusers": [
+    "an array of",
+    "blocked users"
+  ]
+  
+}

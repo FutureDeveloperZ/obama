@@ -76,7 +76,7 @@ module.exports = class Util {
 	}
 
 	async loadEvents() {
-		for await (const eventFile of this.loadFiles(`${this.directory}events/**/*.js`)) {
+		for await (const eventFile of this.loadFiles(`${this.directory}Events/**/*.js`)) {
 			delete require.cache[eventFile];
 			const { name } = path.parse(eventFile);
 			const File = require(eventFile);

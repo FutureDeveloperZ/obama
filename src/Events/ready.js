@@ -2,13 +2,13 @@ const Event = require('../Structure/Event');
 
 module.exports = class extends Event {
   
-  constructor(...args) {
+  constructor(client, message, args) {
     super(...args, {
       once: true
     });
   }
   
-  run(message, client) {
+  run() {
     console.log([
       `Logged in as ${this.client.user.tag}`
       `Loaded ${this.client.commands.size} commands`

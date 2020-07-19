@@ -8,6 +8,7 @@
     "apiai": "^4.0.3",
     "ascii-art": "^2.5.0",
     "axios": "^0.19.2",
+    "glob": "^7.1.6",
     "canvas": "^2.6.0",
     "canvas-constructor": "^3.1.0",
     "chalk": "^4.0.0",

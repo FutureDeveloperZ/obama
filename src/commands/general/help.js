@@ -1,21 +1,58 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require('discord.js');
+const Command = require('../../Structures/Command');
 
-module.exports.run = async (bot, message, args) => {      
-      const helpembed = new MessageEmbed()
-      .setTitle('<a:obamathisthing:718798955193827368>  Help List ')
-      .setDescription('View My commands here and remember to always put `f;` before a command')
-      .addField('💼 》 Utility','\n``changelog``, ``serverinfo``, ``userinfo``, ``invite``, ``afk``, ``stats``, ``ping``, ``upvote``, ``query``, ``embed``, ``say``')
-      .addField('🔐 》 Administrator','\n``ban``, ``kick``, ``poll``, ``purge``, ``mute``')
-      .addField('🖼 》 Images', '\n ``cat``, ``kiss``, ``pat``, ``dog``')
-      .addField('🎎 》 Anime', '\n ``manga``, ``anime``, ``ranime``, ``rmanga``, ``schedule``, ``genre``, ``scrap``')
-      .addField('🧮 》 Fun','\n``8ball``, ``ascii``, ``roblox``, ``avatar``, ``bond``, ``coinflip``, ``gayrate``, ``joke``, ``meme``, ``quiz``, ``rate``, ``yomama``, ``advice``, ``age``, ``roast``, ``hypixel``')
-      .setColor('RANDOM')
-      .setTimestamp()
-      .setFooter(`Requested by ${message.author.tag} | 🔞 f;helpnsfw at a nsfw channel  `, `${message.author.avatarURL({ dynamic: true })}`)
-      return message.channel.send(helpembed);
+module.exports = class extends Command {
 
-}
- 
-module.exports.help = {
-  name: "help"
-}
+	constructor(...args) {
+		super(...args, {
+			aliases: ['halp'],
+			description: 'Displays all the commands in the bot',
+			category: 'Utilities',
+			usage: '[command]'
+		});
+	}
+
+	async run(message, [command]) {
+		const embed = new MessageEmbed()
+			.setColor('BLUE')
+			.setAuthor(`${message.guild.name} Help Menu`, message.guild.iconURL({ dynamic: true }))
+			.setThumbnail(this.client.user.displayAvatarURL())
+			.setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
+			.setTimestamp();
+
+		if (command) {
+			const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
+
+			if (!cmd) return message.channel.send(`Invalid Command named. \`${command}\``);
+
+			embed.setAuthor(`${this.client.utils.capitalise(cmd.name)} Command Help`, this.client.user.displayAvatarURL());
+			embed.setDescription([
+				`**❯ Aliases:** ${cmd.aliases.length ? cmd.aliases.map(alias => `\`${alias}\``).join(' ') : 'No Aliases'}`,
+				`**❯ Description:** ${cmd.description}`,
+				`**❯ Category:** ${cmd.category}`,
+				`**❯ Usage:** ${cmd.usage}`
+			]);
+
+			return message.channel.send(embed);
+		} else {
+			embed.setDescription([
+				`These are the available commands for ${message.guild.name}`,
+				`The bot's prefix is: ${this.client.prefix}`,
+				`Command Parameters: \`<>\` is strict & \`[]\` is optional`
+			]);
+			let categories;
+			if (!this.client.owners.includes(message.author.id)) {
+				categories = this.client.utils.removeDuplicates(this.client.commands.filter(cmd => cmd.category !== 'Owner').map(cmd => cmd.category));
+			} else {
+				categories = this.client.utils.removeDuplicates(this.client.commands.map(cmd => cmd.category));
+			}
+
+			for (const category of categories) {
+				embed.addField(`**${this.client.utils.capitalise(category)}**`, this.client.commands.filter(cmd =>
+					cmd.category === category).map(cmd => `\`${cmd.name}\``).join(' '));
+			}
+			return message.channel.send(embed);
+		}
+	}
+
+};

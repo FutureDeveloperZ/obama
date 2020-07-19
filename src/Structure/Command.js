@@ -1,20 +1,17 @@
-class Command {
-    constructor(client, options = {
-        name: null,
-        aliases: [],
-        description: null,
-        usage: null,
-        category: 'system',
-        devOnly: false
-    }) {
-        this.client = client;
-        this.name = options.name || null;
-        this.aliases = options.aliases || [];
-        this.description = options.description || null;
-        this.usage = options.usage ? `${this.name} ${options.usage}` : this.name;
-        this.category = options.category || 'system';
-        this.devOnly = options.devOnly;
-    }
-}
+module.exports = class Command {
 
-module.exports = Command;
+	constructor(client, name, options = {}) {
+		this.client = client;
+		this.name = options.name || name;
+		this.aliases = options.aliases || [];
+		this.description = options.description || 'No description provided.';
+		this.category = options.category || 'Miscellaneous';
+		this.usage = options.usage || 'No usage provided.';
+	}
+
+	// eslint-disable-next-line no-unused-vars
+	async run(message, args) {
+		throw new Error(`Command ${this.name} doesn't provide a run method!`);
+	}
+
+};

@@ -3,7 +3,7 @@ const Event = require('../Structure/Event');
 module.exports = class extends Event {
   
   constructor(client, message, args) {
-    super(...args, {
+    super(args, {
       once: true
     });
   }

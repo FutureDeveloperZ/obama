@@ -8,7 +8,7 @@ module.exports = class extends Event {
     });
   }
   
-  run() {
+  run(message, client) {
     console.log([
       `Logged in as ${this.client.user.tag}`
       `Loaded ${this.client.commands.size} commands`

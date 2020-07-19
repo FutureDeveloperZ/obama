@@ -2,7 +2,7 @@ const path = require('path');
 const { promisify } = require('util');
 const glob = promisify(require('glob'));
 const Command = require('./Command.js');
-const Event = require('./Event.js');
+// const Event = require('./Event.js');
 
 module.exports = class Util {
 

@@ -46,7 +46,7 @@ module.exports = class MenuDocsClient extends Client {
 		if (typeof options !== 'object') throw new TypeError('Options should be a type of Object.');
 
 		if (!options.token) throw new Error('You must pass the token for the client.');
-		this.token = options.token;
+		this.token = process.env.BOT_TOKEN;
 
 		if (!options.prefix) throw new Error('You must pass a prefix for the client.');
 		if (typeof options.prefix !== 'string') throw new TypeError('Prefix should be a type of String.');
@@ -55,7 +55,7 @@ module.exports = class MenuDocsClient extends Client {
 
 	async start(token = this.token) {
 		this.utils.loadCommands();
-		super.login(process.env.BOT_TOKEN);
+		super.login(token);
 	}
 
 };

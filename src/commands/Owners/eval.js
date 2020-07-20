@@ -15,7 +15,7 @@ constructor(...args) {
 	}
 
 
-    async run(message, [args]) {
+    async run(message,args) {
       
       
  let embed = new Discord.MessageEmbed()

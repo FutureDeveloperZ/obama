@@ -15,7 +15,7 @@ constructor(...args) {
 	}
 
 
-    async run(message,args) {
+    async run(message, args) {
       
       
  let embed = new Discord.MessageEmbed()
@@ -46,7 +46,7 @@ constructor(...args) {
   let embed = new Discord.MessageEmbed()
       .setTitle(`Evaluated in ${Math.round(bot.ws.ping)}ms`)
       .addField(":inbox_tray: Input", `\`\`\`js\n${code}\n\`\`\``)
-      .addField(":outbox_tray: Output", `\`\`\`js\n${clean(evaled).replace(bot.token, "Are you retarded?")}\n\`\`\``)
+      .addField(":outbox_tray: Output", `\`\`\`js\n${clean(evaled).replace(this.client.token, "Are you retarded?")}\n\`\`\``)
       .addField('Type', `\`\`\`xl\n${(typeof rawEvaled).substr(0, 1).toUpperCase() + (typeof rawEvaled).substr(1)}\n\`\`\``)
       .setColor('GREEN');
       message.channel.send({embed});

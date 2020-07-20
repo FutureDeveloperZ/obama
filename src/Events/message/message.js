@@ -20,9 +20,7 @@ module.exports = class extends Event {
 			const [cmd, ...args] = message.content.slice(prefix.length).trim().split(/ +/g);
 
 
-console.log(this.client.aliases);
-console.log(this.client.aliases.get(cmd.toLowerCase()));
-			const command = this.client.commands.get(cmd.toLowerCase()) || this.client.commands.get(this.client.aliases.get(cmd.toLowerCase()));
+  	const command = this.client.commands.get(cmd.toLowerCase()) || this.client.commands.get(this.client.aliases.get(cmd.toLowerCase()));
 			if (command) {
 				command.run(message, args);
 			}

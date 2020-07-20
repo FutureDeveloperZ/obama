@@ -29,7 +29,7 @@ constructor(...args) {
   else
       return text;
 }try {
-  console.log('args')
+  console.log('args)
       const code = args.join(" ");
       let evaled = eval(code);
       let rawEvaled = evaled;

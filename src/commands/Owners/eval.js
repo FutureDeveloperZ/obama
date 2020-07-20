@@ -1,7 +1,23 @@
 const Discord = require("discord.js");
+const Command = require('../../Structure/Command');
 const config = require('../../../config.json');
 
-module.exports.run = async (bot, message, args) => {
+
+module.exports = class extends Command {
+
+constructor(...args) {
+		super(...args, {
+			aliases: ['ev'],
+			description: 'Evaluates any stuff i send',
+			category: 'Owners',
+			usage: 'eval [evaluation]'
+		});
+	}
+
+
+    async run(message, [args]) {
+      
+      
  let embed = new Discord.MessageEmbed()
   .setTitle("Evaluation")
   .setDescription("Sorry, the `eval` command can only be executed by the Main Developer.")
@@ -37,13 +53,5 @@ module.exports.run = async (bot, message, args) => {
       
       message.channel.send(`\`ERROR\` \`\`\`js\n${clean(err)}\n\`\`\``);
     }
+  }
 }
-
-constructor(...args) {
-		super(...args, {
-			aliases: ['ev'],
-			description: 'Evaluates any stuff i send',
-			category: 'Owners',
-			usage: 'eval [evaluation]'
-		});
-	}

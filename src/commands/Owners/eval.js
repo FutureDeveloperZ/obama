@@ -9,7 +9,7 @@ constructor(...args) {
 		super(...args, {
 			aliases: ['ev'],
 			description: 'Evaluates any stuff i send',
-			category: 'Owners',
+			category: 'Owner',
 			usage: 'eval [evaluation]'
 		});
 	}

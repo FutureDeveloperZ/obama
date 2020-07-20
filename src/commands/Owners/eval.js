@@ -22,7 +22,7 @@ constructor(...args) {
   .setTitle("Evaluation")
   .setDescription("Sorry, the `eval` command can only be executed by the Main Developer.")
   .setColor("#cdf785");
-  if(message.author.id !== config.ownerid) return message.channel.send(embed);
+  if(!this.client.owners.includes(message.author.id)) return message.channel.send(embed);
   function clean(text) {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));

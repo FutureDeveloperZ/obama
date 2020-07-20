@@ -1,6 +1,24 @@
 const { MessageEmbed} = require("discord.js");
+const Command = require('../../Structure/Command');
 
-module.exports.run = async (bot, message, args) => {
+
+module.exports.run = class extends Command {
+  
+  
+constructor(...args) {
+		super(...args, {
+			aliases: [''],
+			description: 'Ask a question and get and answer',
+			category: 'Fun',
+			usage: '8ball [question]'
+		});
+	}
+
+
+async run(message, args) {
+  
+  
+  
   if(!args[2]) return message.reply("Ask a full question Please!");
   let replies = ["Yes", "No", "I don't know", "Maybe", "Try again later", "Without a doubt", "Concentrate and ask again", "Signs point to yes", "Don't count on it"];
   
@@ -18,7 +36,4 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(ballembed);
   
 }
-
-module.exports.help = {
-  name:"8ball"
 }

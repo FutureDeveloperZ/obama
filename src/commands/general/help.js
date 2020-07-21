@@ -46,6 +46,12 @@ module.exports = class extends Command {
 			} else {
 				categories = this.client.utils.removeDuplicates(this.client.commands.map(cmd => cmd.category));
 			}
+			
+			if (!message.channel.nsfw) {
+				categories = this.client.utils.removeDuplicates(this.client.commands.filter(cmd => cmd.category !== 'nsfw').map(cmd => cmd.category));
+			} else {
+				categories = this.client.utils.removeDuplicates(this.client.commands.map(cmd => cmd.category));
+			}
 
 			for (const category of categories) {
 				embed.addField(`**${this.client.utils.capitalise(category)}**`, this.client.commands.filter(cmd =>

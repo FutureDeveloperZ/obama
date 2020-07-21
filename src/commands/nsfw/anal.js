@@ -1,11 +1,26 @@
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [''],
+			description: 'Gets nsfw images of Anal',
+			category: 'nsfw',
+			usage: ''
+		});
+	}
+
+	async run(message) {
+  
+  
   try {
     const {
       body
     } = await request
-      .get("https://www.reddit.com/r/Amateur.json?sort=top&t=week")
+      .get("https://www.reddit.com/r/anal.json?sort=top&t=week")
       .query({
         limit: 800
       });
@@ -25,11 +40,4 @@ if (!message.channel.nsfw) return message.reply(`Cannot send NSFW content in a S
     return message.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
   }
 };
-
-module.exports.config = {
-  name: "amateur",
-  aliases: [],
-  usage: "Use this command to get a nsfw image.",
-  commandCategory: "nsfw",
-  cooldownTime: '5'
-};
+}

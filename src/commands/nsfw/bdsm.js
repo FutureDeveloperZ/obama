@@ -1,11 +1,27 @@
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [''],
+			description: 'Gets nsfw images of bd',
+			category: 'nsfw',
+			usage: ''
+		});
+	}
+
+	async run(message) {
+  
+  
   try {
     const {
       body
     } = await request
-      .get("https://www.reddit.com/r/HighResNSFW.json?sort=top&t=week")
+      .get("https://www.reddit.com/r/bdsm.json?sort=top&t=week")
       .query({
         limit: 800
       });
@@ -15,7 +31,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     if (!message.channel.nsfw) return message.reply(`Cannot send NSFW content in a SFW channel.`);
     const randomnumber = Math.floor(Math.random() * allowed.length);
     const embed = new MessageEmbed()
-      .setColor("#FF6347")
+      .setColor("#FF0A00")
       .setTitle(allowed[randomnumber].data.title)
       .setDescription("Posted by: " + allowed[randomnumber].data.author)
       .setImage(allowed[randomnumber].data.url)
@@ -25,11 +41,4 @@ module.exports.run = async (bot, message, args, funcs) => {
     return message.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
   }
 };
-
-module.exports.config = {
-  name: "4k",
-  aliases: [],
-  usage: "Use this command to get a nsfw image.",
-  commandCategory: "nsfw",
-  cooldownTime: '5',
-};
+}

@@ -10,8 +10,8 @@ module.exports = class extends Event {
   
   run() {
     console.log(`Logged in as ${this.client.user.tag}`);
-    console.log(`Logged in as ${this.client.commands.size} commands`);
-    console.log(`Logged in as ${this.client.events.size} events`);
+    console.log(`Log ${this.client.commands.size} commands`);
+    console.log(`Log ${this.client.events.size} events`);
     
   }
   

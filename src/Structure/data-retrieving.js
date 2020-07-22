@@ -81,7 +81,3 @@ module.exports = function() {
 	}
 
 }
-
-module.exports.help = {
-	name: "data-retrieving"
-}

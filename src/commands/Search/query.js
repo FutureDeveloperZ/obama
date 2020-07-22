@@ -11,7 +11,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: ['qr'],
-			description: 'Displays your minecraft server info even bedrock editon too ',
+			description: 'Displays your minecraft server info only bedrock editon ',
 			category: 'Search',
 			usage: 'query <ip> [port]'
 		});

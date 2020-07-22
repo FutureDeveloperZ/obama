@@ -45,7 +45,7 @@ module.exports = class extends Command {
 				categories = this.client.utils.removeDuplicates(this.client.commands.filter(cmd => cmd.category !== 'Owner').map(cmd => cmd.category));
 			} else {
 				categories = this.client.utils.removeDuplicates(this.client.commands.map(cmd => cmd.category));
-			} e
+			}
 			
 			if (!message.channel.nsfw) {
 				categories = this.client.utils.removeDuplicates(this.client.commands.filter(cmd => cmd.category !== 'nsfw').map(cmd => cmd.category));

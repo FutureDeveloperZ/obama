@@ -20,7 +20,7 @@ module.exports = class extends Command {
 
         let cmd = message.content.split(" ")[0]; //used because of command aliases
       
-        let rMember = message.mentions.members.first() || message.guild.members.find(m => m.user.tag === args[0]) || message.guild.members.get(args[0]);
+        let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!rMember) return message.channel.send(`Didn't find the user u where looking for`);
 
         if (rMember.id === bot.user.id) return message.channel.send(`Can't add Role to myself`);

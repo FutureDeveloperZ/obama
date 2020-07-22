@@ -31,9 +31,9 @@ if(a == null){
         .setColor("RED")
         .setTitle("Query Usage")
         .setTimestamp()
-        .setThumbnail(`https://cdn.discordapp.com/attachments/505849614121828367/510126675128745985/unnamed.png`)
-        .setFooter(`DOPE? or NOPE ${message.author.username}`, `${message.author.avatarURL()}`)
-        .addField("󠂪:white_check_mark: Usage: 󠂪", "**query <server ip> <port>**\n 󠂪 󠂪󠂪 󠂪", true)
+        // .setThumbnail(`https://cdn.discordapp.com/attachments/505849614121828367/510126675128745985/unnamed.png`)
+        .setFooter(`Requested by ${message.author.username}`, `${message.author.avatarURL()}`)
+        .addField("❯ Usage:", "**query <server ip> [port]**", true)
       if(!args[0]) return message.channel.send(res);
         request(url, function(err, response, body) {
             if(err) {
@@ -45,10 +45,10 @@ if(a == null){
           let Omsg = new Discord.MessageEmbed()
           .setColor("RED")
           .setTitle("Query ERROR Message")
-	        .setThumbnail(`https://cdn.discordapp.com/attachments/505849614121828367/510126675128745985/unnamed.png`)
+	        // .setThumbnail(`https://cdn.discordapp.com/attachments/505849614121828367/510126675128745985/unnamed.png`)
           .addField("󠂪 󠂪", "🚫 Server Is Either Offline Or Is Not A MC server 🚫", true)
           .setTimestamp()
-          .setFooter("Correct Usage: query <ip> [port]")
+          .setFooter("❯ Usage: query <ip> [port]")
           
 let stat = body.status
 if(stat == false) return message.channel.send(Omsg);

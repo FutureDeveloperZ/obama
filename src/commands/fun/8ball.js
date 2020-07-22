@@ -7,7 +7,7 @@ module.exports = class extends Command {
   
 constructor(...args) {
 		super(...args, {
-			aliases: [''],
+			aliases: ['8b'],
 			description: 'Ask a question and get and answer',
 			category: 'Fun',
 			usage: '8ball [question]'

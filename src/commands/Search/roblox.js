@@ -28,10 +28,10 @@ async run(message, args) {
             const Verifiedcheck = a.body;
             const embed = new MessageEmbed()
               .setColor('#ff0000')
-              .setTitle("Username: " + saybot)
-              .setDescription("User ID: " + data)
-              .addField("Verified", Verifiedcheck)
-              .setFooter("Profile Link: " + `https://web.roblox.com/users/${data}/profile`)
+              .setTitle("❯ Username: " + saybot)
+              .setDescription("❯ User ID: " + data)
+              .addField("❯ Verified", Verifiedcheck)
+              .setFooter("❯ Profile Link: " + `https://web.roblox.com/users/${data}/profile`)
               .setThumbnail("https://roblox.com/Thumbs/BCOverlay.ashx?username=" + saybot)
               .setImage("http://www.roblox.com/Thumbs/Avatar.ashx?x=250&y=250&Format=Png&username=" + saybot);
             message.channel.send({

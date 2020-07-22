@@ -14,7 +14,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(message, [command]) {
+	async run(message, args) {
     
     if(!args.length) {
       return message.channel.send("Please Give Anime Name").then(msg => msg.delete({ timeout: 4500 }));

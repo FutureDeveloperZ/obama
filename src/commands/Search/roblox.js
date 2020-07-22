@@ -44,4 +44,5 @@ async run(message, args) {
         console.log(err);
         return message.channel.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
     }
-};
+  }
+}

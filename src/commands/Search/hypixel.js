@@ -146,7 +146,7 @@ constructor(...args) {
                 var Statss = new Discord.MessageEmbed()
                     .setTitle(parsedIGN + "'s stats")
                     .setThumbnail(`https://image.ibb.co/emhGrV/Hypixel-Thumbnail.png`)
-                    .addField('Player Info', `
+                    .addField('❯ Player Info', `
  Guild: **${parsedGuild}**
  Rank: **${parsedRank}**
  Karma: **${parsedKarma}**

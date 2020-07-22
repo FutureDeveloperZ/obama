@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args) => {
 
 
 const options = {
-  url: `https://courses.cs.washington.edu/courses/cse154/webservices/pokedex/pokedex.php?pokemon=${args.join(" ")}`,
+  url: `https://pokeapi.co/api/v2/pokemon/${args.join(" ")}`,
   json: true
   
 }

@@ -1,6 +1,7 @@
 const axios = require("axios")
 const Discord = require("discord.js")
-const { shorten } = require("../../utils/util");
+const Command = require('../../Structure/Command');
+
 /*const { config } = require("dotenv");
 
 config({
@@ -116,11 +117,17 @@ async function getVersion() {
     }
 }
 
-module.exports = {
-    name: "stats",
-    category: "hypixel",
-    description: "Send hypixel stats",
-    run: async(client, message, args) => {
+module.exports = class extends Command {
+constructor(...args) {
+		super(...args, {
+			aliases: ['hy'],
+			description: 'Displays your hypixel stats',
+			category: 'Search',
+			usage: 'hypixel [username]'
+		});
+	}
+
+	async run(message, args) {
         if (args[0] != undefined) {
            console.log(args[0])
             ign = args[0]

@@ -10,7 +10,7 @@ constructor(...args) {
 			aliases: ['8b'],
 			description: 'Ask a question and get and answer',
 			category: 'Fun',
-			usage: '8ball [question]'
+			usage: '8ball <question>'
 		});
 	}
 

@@ -23,7 +23,7 @@ module.exports = class extends Command {
         let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!rMember) return message.channel.send(`Didn't find the user u where looking for`);
 
-        if (rMember.id === bot.user.id) return message.channel.send(`Can't add Role to myself`);
+        if (rMember.id === this.client.user.id) return message.channel.send(`Can't add Role to myself`);
 
         let role = message.guild.roles.cache.find(r => r.name == args[1]) || message.guild.roles.find(r => r.id == args[1]) || message.mentions.roles.first();
         if(!role) return message.channel.send(`Didn't find the Role or ID dumb dumb`);

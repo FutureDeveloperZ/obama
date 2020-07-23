@@ -33,7 +33,7 @@ module.exports = class extends Command {
         } else {
             try {
               
-              let AddEmbed = MessageEmbed()
+              let AddEmbed = new MessageEmbed()
               .setDescription(`✅  Change roles for ${rMember.displayName}, +${role.name}`)
                await rMember.roles.add(role.id);
                message.channel.send(AddEmbed); //if successful this message

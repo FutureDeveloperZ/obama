@@ -16,7 +16,7 @@ module.exports = class extends Command {
 
 let embed = new MessageEmbed()
  .setAuthor(`peepee size machine`)
- .addField(`${message.author.tag}\n8${"=".repeat(Math.floor(Math.random() * 15))}D`);
+ .setDescription(`${message.author.username} penis\n8${"=".repeat(Math.floor(Math.random() * 15))}D`);
  message.channel.send(embed)
 }
 }

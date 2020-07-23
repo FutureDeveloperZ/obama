@@ -39,8 +39,7 @@ module.exports = class extends Command {
                message.channel.send(AddEmbed); //if successful this message
                 
             } catch(e) {
-                let id = second.getError(e.message);
-                message.channel.send(`Unfortunately an error occurred. Error ID: ${id}`);
+                message.channel.send(`Unfortunately an error occurred. Error ID: ${e.message}`);
             }
         }
     }

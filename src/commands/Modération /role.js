@@ -29,17 +29,19 @@ module.exports = class extends Command {
         if(!role) return message.channel.send(`Didn't find the Role or ID dumb dumb`);
 
        if (rMember.roles.cache.find(role => role.name === args[1])) {
-      return message.channel.send(`<@${rMember.id}> already has that role `);
+             let RemEmbed = new MessageEmbed()
+              .setDescription(`✅  Change roles for ${rMember.displayName}, -${role.name}`)
+               await rMember.roles.remove(role.id);
+               message.channel.send(RemEmbed)
         } else {
             try {
-              
               let AddEmbed = new MessageEmbed()
               .setDescription(`✅  Change roles for ${rMember.displayName}, +${role.name}`)
                await rMember.roles.add(role.id);
                message.channel.send(AddEmbed); //if successful this message
                 
             } catch(e) {
-                message.channel.send(`Unfortunately an error occurred. Error ID: ${e.message}`);
+                message.channel.send(`Unfortunately an error occurred. Error : \`\`${e.message}\`\``);
             }
         }
     }

@@ -1,4 +1,4 @@
-const magick = require("../build/Release/image.node");
+// const magick = require("../build/Release/image.node");
 const { promisify } = require("util");
 
 module.exports = class extends Command {

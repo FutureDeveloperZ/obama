@@ -28,8 +28,8 @@ module.exports = class extends Command {
         let role = message.guild.roles.cache.find(r => r.name == args[1]) || message.guild.roles.cache.find(r => r.id == args[1]) || message.mentions.roles.first();
         if(!role) return message.channel.send(`Didn't find the Role or ID dumb dumb`);
 
-       if (rMember.roles.cache.find(role => role.name === r.id)) {
-      return message.channel.send(`<@${rMember.id}> is already muted!`);
+       if (rMember.roles.cache.find(role => r.name === args[1])) {
+      return message.channel.send(`<@${rMember.id}> already has that role `);
         } else {
             try {
               

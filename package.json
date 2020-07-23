@@ -4,6 +4,7 @@
   "description": "Skill Bot",
   "main": "obama.js",
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "anime-scraper": "^3.1.1",
     "apiai": "^4.0.3",
     "ascii-art": "^2.5.0",
@@ -14,6 +15,7 @@
     "chalk": "^4.0.0",
     "cuteapi": "0.0.3",
     "discord.js": "^12.2.0",
+    "file-type": "^13.1.2",
     "fs": "0.0.1-security",
     "fs-nextra": "^0.3.8",
     "klasa": "^0.5.0",

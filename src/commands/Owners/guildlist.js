@@ -37,7 +37,7 @@ module.exports = class extends Command {
     message.channel.send(embed);
   } catch (e) {
     console.log(e);
-    funcs.send(`Oh no, an error occurred!\n${e.message}`);
+    message.channel.send(`Oh no, an error occurred!\n${e.message}`);
   }
 };
 }

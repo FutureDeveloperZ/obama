@@ -14,7 +14,7 @@ module.exports = class extends Command {
 	}
 
 	async run(message) {
-  channel.startTyping();
+  message.channel.startTyping();
   const image = await require("../utils/imagedetect.js")(message);
   if (image === undefined) return `${message.author.mention}, you need to provide an image to add a iFunny watermark!`;
   const buffer = await promisify(magick.watermark)(image.path, "./assets/images/ifunny.png", 8, true, true, false, image.type.toUpperCase(), image.delay ? (100 / image.delay.split("/")[0]) * image.delay.split("/")[1] : 0);
@@ -22,6 +22,6 @@ module.exports = class extends Command {
     file: buffer,
     name: `ifunny.${image.type}`
   };
-  channel.stopTyping(true);
+  message.channel.stopTyping(true);
 };
 }

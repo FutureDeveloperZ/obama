@@ -1,5 +1,6 @@
 // const magick = require("../build/Release/image.node");
 const { promisify } = require("util");
+const Command = require('../../Structure/Command');
 
 module.exports = class extends Command {
 

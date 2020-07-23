@@ -40,3 +40,4 @@ module.exports = class extends Command {
     funcs.send(`Oh no, an error occurred!\n${e.message}`);
   }
 };
+}

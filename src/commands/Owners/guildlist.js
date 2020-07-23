@@ -32,7 +32,7 @@ module.exports = class extends Command {
       .setFooter(`Total guilds: ${this.client.guilds.cache.size}`)
       // .setColor(funcs.rc())
     this.client.guilds.cache.forEach(guild => {
-      embed.addField(`__**${guild.name}**__`, `Owner: ${guild.owner.user.tag}\nMembercount: ${guild.members.memberCount}\nID: ${guild.id}`)
+      embed.addField(`__**${guild.name}**__`, `Owner: ${guild.owner.user.tag}\nMembercount: ${guild.memberCount}\nID: ${guild.id}`)
     });
     message.channel.send(embed);
   } catch (e) {

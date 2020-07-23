@@ -5,8 +5,8 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['addrole'],
-			description: 'Add a role to a user',
+			aliases: ['role'],
+			description: 'Adds a role to a user or removes role from user',
 			category: 'Moderation',
 			usage: 'role <user> <role>'
 		});

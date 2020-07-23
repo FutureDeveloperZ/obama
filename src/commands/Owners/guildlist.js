@@ -16,7 +16,7 @@ module.exports = class extends Command {
 	  
   if (!this.client.owners.includes(message.author.id)) return message.channel.send("Only bot owner can use this command.");
   try {
-    let guilds = this.client.guilds.map(g => `Name: ${g.name}, Membercount: ${g.members.size}, ID: ${g.id}`).join('\n');
+    let guilds = this.client.guilds.cache.map(g => `Name: ${g.name}, Membercount: ${g.members.size}, ID: ${g.id}`).join('\n');
     if (this.client.guilds.size >= 1) {
       message.channel.send("```" + guilds + "```", {
         split: {
@@ -30,8 +30,8 @@ module.exports = class extends Command {
       .setTimestamp()
       .setThumbnail(this.client.user.avatarURL)
       .setFooter(`Total guilds: ${this.client.guilds.size}`)
-      .setColor(funcs.rc())
-    this.client.guilds.forEach(guild => {
+      // .setColor(funcs.rc())
+    this.client.guilds.cache.forEach(guild => {
       embed.addField(`__**${guild.name}**__`, `Owner: ${guild.owner.user.tag}\nMembercount: ${guild.members.size}\nID: ${guild.id}`)
     });
     message.channel.send(embed);

@@ -29,10 +29,10 @@ module.exports = class extends Command {
     let embed = new MessageEmbed()
       .setTimestamp()
       .setThumbnail(this.client.user.avatarURL)
-      .setFooter(`Total guilds: ${this.client.guilds.size}`)
+      .setFooter(`Total guilds: ${this.client.guilds.cache.size}`)
       // .setColor(funcs.rc())
     this.client.guilds.cache.forEach(guild => {
-      embed.addField(`__**${guild.name}**__`, `Owner: ${guild.owner.user.tag}\nMembercount: ${guild.members.size}\nID: ${guild.id}`)
+      embed.addField(`__**${guild.name}**__`, `Owner: ${guild.owner.user.tag}\nMembercount: ${guild.members.memberCount}\nID: ${guild.id}`)
     });
     message.channel.send(embed);
   } catch (e) {

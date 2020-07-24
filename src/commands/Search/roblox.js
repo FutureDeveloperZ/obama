@@ -7,7 +7,7 @@ module.exports = class extends Command {
   
 constructor(...args) {
 		super(...args, {
-			aliases: [''],
+			aliases: [],
 			description: 'Search up your roblox profile',
 			category: 'Search',
 			usage: 'Roblox <username>'

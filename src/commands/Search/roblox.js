@@ -38,11 +38,12 @@ async run(message, args) {
               embed
             }).catch(console.error);
           });
-        });
-      } catch (err) {
+        }); 
+      
+    } catch(err) {
         if (err.status === 500) return msg.say('Could not find any results.');
         console.log(err);
         return message.channel.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
+      }
     }
   }
-}

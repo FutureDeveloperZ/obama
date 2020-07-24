@@ -1,8 +1,24 @@
 const { MessageEmbed } = require("discord.js")
+const Command = require('../../Structure/Command');
 
-exports.run = async (bot, message, args) => {
+module.exports = class extends Command {
 
-  if(!args[0]) return message.channel.send("**Mention a user or users that you want to bond.** \n `bond <user> <user>`")
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Bond with you\'re wify',
+			category: 'Fun',
+			usage: 'bond [user]'
+		});
+	}
+
+	async run(message, args) {
+	  
+let embed = new MessageEmbed()
+.setAuthor()
+.setDescription(`❯ Correct Usage:\nf; [user] \n f; [user] [user]`)
+
+  if(!args[0]) return message.channel.send(embed)
 
    var bondLevel = Math.floor(Math.random() * 102);
    let user1 = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);

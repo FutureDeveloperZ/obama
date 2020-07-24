@@ -15,8 +15,8 @@ module.exports = class extends Command {
 	async run(message, args) {
 	  
 let embed = new MessageEmbed()
-.setAuthor()
-.setDescription(`❯ Correct Usage:\nf; [user] \n f; [user] [user]`)
+.setDescription(`**❯ Correct Usage:**\nf; [user]\nor \nf; [user] [user]`)
+.setColor('#c70c96')
 
   if(!args[0]) return message.channel.send(embed)
 

@@ -122,5 +122,6 @@ let embed = new MessageEmbed()
 
 
         return message.channel.send(bondEmbed3)
+      }
     }
-}
+  }

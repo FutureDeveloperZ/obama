@@ -7,7 +7,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: [''],
+			aliases: [],
 			description: 'Gets nsfw images of bottomless',
 			category: 'nsfw',
 			usage: ''

@@ -8,7 +8,7 @@ module.exports = class extends Command {
 			aliases: ['halp'],
 			description: 'Displays all the commands in the bot',
 			category: 'Utilities',
-			usage: '[command]'
+			usage: 'help [command]'
 		});
 	}
 

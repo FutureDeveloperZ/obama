@@ -40,7 +40,10 @@ async run(message, args) {
           });
         });
       } catch (err) {
-        if (err.status === 404) return msg.say('Could not find any results.');
+        if (err.status === 404) { return msg.say('Could not find any results.');
+      } else
+        if (err.status === 500) { return msg.say('Internal Server Error kids');
+        }
         console.log(err);
         return message.channel.send(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
     }

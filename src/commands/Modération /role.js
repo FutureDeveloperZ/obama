@@ -15,8 +15,8 @@ module.exports = class extends Command {
 	async run(message, args) {
         if (message.channel.type == "dm") return message.channel.send("This command only works in a server!");
 
-        if(!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return errors.noPerms(message, "MANAGE_ROLES");
-        if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return errors.lack(message.channel, "MANAGE_ROLES");
+        if(!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send(`U Lack permissions be sure u have \`MANAGE_ROLES\` or \`ADMINISTRATOR\``);
+        if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channsl.send(`I lack permissions be sure i have \`MANAGE_ROLES\` or \`ADMINISTRATOR\``);
 
         let cmd = message.content.split(" ")[0]; //used because of command aliases
       

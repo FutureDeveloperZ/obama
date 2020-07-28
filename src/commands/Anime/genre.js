@@ -1,7 +1,19 @@
 const Discord = require("discord.js");
-require('./data-retrieving')();
+require('../../Structure/data-retrieving')();
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Search up Genres of Anime or Manga',
+			category: 'Anime',
+			usage: 'genre <anime | manga>'
+		});
+	}
+
+	async run(message, args) {
 /*
 	var animeGenres = new Map([["action",1], ["adventure",2], ["cars",3], ["comedy",4], ["dementia",5], 
 		["demons",6], ["mystery",7], ["drama",8], ["ecchi",9], ["fantasy",10], ["game",11], ["hentai",12],
@@ -62,7 +74,7 @@ module.exports.run = async(bot, message, args) => {
 			}
 		}
 		else {
-			message.channel.send("Invalid command usage. \n $genre {anime/manga} for list of anime/manga genres \n $genre {anime/manga} {genre} {page number} leave page number blank for first page of results.");
+			message.channel.send("Invalid command usage. \n f;genre {anime/manga} for list of anime/manga genres \n f;genre {anime/manga} {genre} {page number} leave page number blank for first page of results.");
 		} 
 	}
 	else if (args.length > 1) {
@@ -177,8 +189,4 @@ module.exports.run = async(bot, message, args) => {
 
 	*/
 }
-
-
-module.exports.help = {
-	name: "genre"
 }

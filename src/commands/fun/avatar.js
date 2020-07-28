@@ -1,6 +1,18 @@
 const { MessageEmbed  } = require("discord.js");
+const Command = require('../../Structure/Command');
 
-module.exports.run = async (bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['av'],
+			description: 'Displays the avatar of a user',
+			category: 'Fun',
+			usage: 'avatar [user]'
+		});
+	}
+
+	async run(message) {
 
   let mentions = message.mentions.members.first()
   if(!mentions) {
@@ -19,7 +31,4 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embed)
   }
 }
-
-module.exports.help = {
-  name:"avatar"
 }

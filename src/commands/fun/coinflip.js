@@ -1,6 +1,18 @@
 const { MessageEmbed } = require("discord.js");
+const Command = require('../../Structure/Command');
 
-	module.exports.run = async (bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['cf'],
+			description: 'Coinflip and wait for the coin to flip',
+			category: 'Fun',
+			usage: ''
+		});
+	}
+
+	async run(message) {
 
 	var resultflip = Math.floor((Math.random() * 2) + 1);
 	if (resultflip == 1) {
@@ -19,7 +31,4 @@ const { MessageEmbed } = require("discord.js");
 	message.channel.send(embedtails);
 	}
 	}
-
-	module.exports.help = {
-	name: "coinflip"
   }

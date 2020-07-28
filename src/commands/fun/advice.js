@@ -1,5 +1,19 @@
 const req = require('node-superfetch');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'get and advice from me',
+			category: 'Fun',
+			usage: ''
+		});
+	}
+
+	async run(message) {
+	  
   try {
     const {
       body
@@ -10,11 +24,4 @@ module.exports.run = async (bot, message, args, funcs) => {
     message.reply("Oh no, an error occurred!\n${e.message}");
   }
 };
-
-module.exports.config = {
-  name: "advice",
-  aliases: [],
-  usage: "Use this command to get some advice.",
-  commandCategory: "fun",
-  cooldownTime: "5"
-};
+}

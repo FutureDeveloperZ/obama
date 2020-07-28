@@ -1,7 +1,19 @@
 const { get } = require("request-promise-native");
 const { MessageEmbed } = require("discord.js")
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(client, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['mg'],
+			description: 'Shows Manga Info',
+			category: 'Anime',
+			usage: 'manga <Manga name>'
+		});
+	}
+
+	async run(message, args) {
     
     
     
@@ -26,27 +38,27 @@ module.exports.run = async(client, message, args) => {
       get(option).then(body => {
        try {
         let embed = new MessageEmbed()
-        .setTitle(body.data[0].attributes.titles.en)
+        .setTitle(body.data[0].attributes.titles.en_jp)
         .setColor("#4286f4")
         
         .setDescription(body.data[0].attributes.synopsis)
         .setThumbnail(body.data[0].attributes.posterImage.original)
-        .addField("♤ |INFO", [
-        `\>\ Avarage Rating: ${body.data[0].attributes.averageRating}`,
-        `\>\ Romanji Name: ${body.data[0].attributes.titles.en_jp}`,
-        `\>\ Age Rating: ${body.data[0].attributes.ageRating}`,
-        `\>\ Age guide: ${body.data[0].attributes.ageRatingGuide}`,
+        .addField("INFO", [
+        `\❯ Avarage Rating: ${body.data[0].attributes.averageRating}`,
+        `\❯ Romanji Name: ${body.data[0].attributes.titles.en_jp}`,
+        `\❯ Age Rating: ${body.data[0].attributes.ageRating}`,
+        `\❯ Age guide: ${body.data[0].attributes.ageRatingGuide}`,
         ])
-        .addField("♧ |STATS", [
-        `\>\ Popularity Rank: #${body.data[0].attributes.popularityRank}`,
-        `\>\ Rating Rank: #${body.data[0].attributes.ratingRank}`,
-        `\>\ Status: ${body.data[0].attributes.status}`,
+        .addField("STATS", [
+        `\❯ Popularity Rank: #${body.data[0].attributes.popularityRank}`,
+        `\❯ Rating Rank: #${body.data[0].attributes.ratingRank}`,
+        `\❯ Status: ${body.data[0].attributes.status}`,
         	])
-        .addField("♡ |CHAPTER", [
-        `\>\ Chapter: ${body.data[0].attributes.chapterCount}`,
-        `\>\ Valume: ${body.data[0].attributes.volumeCount}`,
-        `\>\ Started on ${body.data[0].attributes.startDate}`,
-        `\>\ Ended on ${body.data[0].attributes.endDate}`,
+        .addField("CHAPTER", [
+        `\❯ Chapter: ${body.data[0].attributes.chapterCount}`,
+        `\❯ Valume: ${body.data[0].attributes.volumeCount}`,
+        `\❯ Started on ${body.data[0].attributes.startDate}`,
+        `\❯ Ended on ${body.data[0].attributes.endDate}`,
         	])
         .setImage(body.data[0].attributes.coverImage.large)
         //try it
@@ -67,11 +79,4 @@ module.exports.run = async(client, message, args) => {
     )})
     
   }
-
-module.exports.help = {
-  name: "manga",
-  category: "info",
-  aliases: ["mg"],
-  description: "Get manga information",
-  usage: "manga <manga_name>",
 }

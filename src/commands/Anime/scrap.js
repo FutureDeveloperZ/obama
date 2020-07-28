@@ -1,8 +1,19 @@
 const discord = require("discord.js")
 const Anime = require('anime-scraper').Anime
+const Command = require('../../Structure/Command');
 
+module.exports = class extends Command {
 
-module.exports.run = async(client, message, args) => {
+	constructor(...args) {
+		super(...args, {
+			aliases: ['sp'],
+			description: 'Scrap any anime direct link from gogoanime',
+			category: 'Anime',
+			usage: 'scrap <anime | episode number>'
+		});
+	}
+
+	async run(message, args) {
     
     const cmd = args.join(" ").split(' | ');
     
@@ -41,9 +52,4 @@ module.exports.run = async(client, message, args) => {
     
   }
 
-module.exports.help = {
-name: "scrap",
-  description: "Scrap any anime direct link from gogoanime",
-  category: "info",
- usage: "scrap <anime_name> | <episode_no>" ,
 }

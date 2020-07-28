@@ -1,7 +1,19 @@
 const Discord = require("discord.js");
-require('./data-retrieving')();
+rrequire('../../Structure/data-retrieving')();
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['sd'],
+			description: 'Get the schedule of and anime',
+			category: 'Anime',
+			usage: 'schedule <Any day of the week/today>'
+		});
+	}
+
+	async run(message, args) {
 	var weekDays = ["sunday", "monday", "tuesday", "wednesday", 
 		"thursday", "friday", "saturday"];
 
@@ -68,8 +80,4 @@ module.exports.run = async(bot, message, args) => {
 	
 }
 
-
-
-module.exports.help = {
-	name: "schedule"
 }

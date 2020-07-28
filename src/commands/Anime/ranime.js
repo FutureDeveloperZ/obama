@@ -1,7 +1,20 @@
 const Discord = require("discord.js");
-require('./data-retrieving')();
+require('../../Structure/data-retrieving')();
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['ra'],
+			description: 'Get a random Anime',
+			category: 'Anime',
+			usage: ''
+		});
+	}
+
+	async run(message) {
+	  
 	do {
 		var rand = Math.floor(Math.random()*35000);
 		//console.log(rand); 
@@ -93,10 +106,6 @@ module.exports.run = async(bot, message, args) => {
 		}
 
 		return message.channel.send(animeEmbed);
-	}
-}
-
-
-module.exports.help = {
-	name: "ranime"
+	  }
+  }
 }

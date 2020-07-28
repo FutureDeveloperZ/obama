@@ -1,7 +1,19 @@
 const Discord = require("discord.js");
-require('./data-retrieving')();
+require('../../Structure/data-retrieving')();
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['rm'],
+			description: 'Get a random Manga',
+			category: 'Anime',
+			usage: ''
+		});
+	}
+
+	async run(message) {
 	do {
 		var rand = Math.floor(Math.random()*40000);
 		console.log(rand); 
@@ -63,6 +75,4 @@ module.exports.run = async(bot, message, args) => {
 
 }
 
-module.exports.help = {
-	name: "rmanga"
 }

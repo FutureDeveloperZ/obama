@@ -1,5 +1,18 @@
 const { MessageEmbed } = require('discord.js');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Roats your haters',
+			category: 'Fun',
+			usage: 'roats <user>'
+		});
+	}
+	
+async run(message, args) {
     try {
         let whoto = message.mentions.members.first();
         if (!whoto) return message.reply(`Please mention somebody to roast.`);
@@ -39,6 +52,7 @@ module.exports.run = async (bot, message, args, funcs) => {
             "Keep rolling your eyes. Maybe you’ll find your brain back there",
             "No, no. I am listening. It just takes me a moment to process so much stupid information all at once.",
             "I’m sorry, what language are you speaking? It sounds like bullshit.",
+            "poopoo head",
         ];
         const embed = new MessageEmbed()
             .setTitle("Roasted :scream: :fire:!!")
@@ -51,11 +65,4 @@ module.exports.run = async (bot, message, args, funcs) => {
         message.reply(`Oh no! An error occurred! \`${e.message}\`.`);
     }
 };
-
-module.exports.config = {
-    name: "roast",
-    aliases: [],
-    usage: "Use this command to roast somebody.",
-    commandCategory: "fun",
-    cooldownTime: '5'
-};
+}

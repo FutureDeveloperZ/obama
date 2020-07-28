@@ -1,6 +1,18 @@
 const Discord = require("discord.js");
+const Command = require('../../Structure/Command');
 
-module.exports.run = async (bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: ['howgay'],
+			description: 'How gay are u or your friend',
+			category: 'Fun',
+			usage: ''
+		});
+	}
+
+	async run(message) {
     let user = message.mentions.users.first() || message.author;
     let gayembed = new Discord.MessageEmbed()
     .setAuthor(`${user.username}`)
@@ -9,7 +21,4 @@ module.exports.run = async (bot, message, args) => {
     .setFooter(`😂😂 | Requested by ${message.author.tag} | Dope`)
     return message.channel.send(gayembed);
 }
-
-module.exports.help = {
-  name:"gayrate"
 }

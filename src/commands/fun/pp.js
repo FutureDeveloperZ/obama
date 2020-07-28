@@ -13,10 +13,10 @@ module.exports = class extends Command {
 	}
 
 	async run(message) {
-
+let user = message.mentions.users.first() || message.author;
 let embed = new MessageEmbed()
  .setAuthor(`peepee size machine`)
- .setDescription(`${message.author.username} penis\n8${"=".repeat(Math.floor(Math.random() * 15))}D`);
+ .setDescription(`${user.username} penis\n8${"=".repeat(Math.floor(Math.random() * 15))}D`);
  message.channel.send(embed)
 }
 }

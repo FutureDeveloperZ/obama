@@ -1,6 +1,19 @@
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Top memes from reddit',
+			category: 'Fun',
+			usage: ''
+		});
+	}
+
+	async run(message) {
   try {
     try {
       const {
@@ -25,14 +38,7 @@ module.exports.run = async (bot, message, args, funcs) => {
     }
   } catch (err) {
     console.log(err);
-    funcs.send(`Oh no! An error occurred! \`${err.message}\`.`);
+    message.channel.send(`Oh no! An error occurred! \`${err.message}\`.`);
   }
 };
-
-module.exports.config = {
-  name: "meme",
-  aliases: [],
-  usage: "Use this command to get a meme.",
-  cooldownTime: '5',
-  commandCategory: "reddit"
-};
+}

@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
+const Command = require('../../Structure/Command');
 const quiz = [
   { q: "What color is the sky?", a: ["no color", "invisible", "clear"] },
   { q: "Name a soft drink brand.", a: ["pepsi", "coke", "rc", "7up", "sprite", "mountain dew"] },
   { q: "Name a programming language.", a: ["actionscript", "coffeescript", "c", "c++", "basic", "python", "perl", "javascript", "dotnet", "lua", "crystal", "go", "d", "php", "ruby", "rust", "dart", "java", "javascript"] },
-  { q: "Who's a good boy?", a: ["you are"] },
-  { q: "Who created me?", a: ["Wolfkid"] },
   { q: "What programming language am I made in?", a: ["javascript",] },
   { q: "Name the seventh planet from the Sun.", a: ["uranus"] },
   { q: "Name the World's biggest island.", a: ["greenland",] },
@@ -30,7 +29,19 @@ const options = {
   errors: ["time"],
 };
 
-module.exports.run = async (bot, message, args) => {
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'start a quiz',
+			category: 'Fun',
+			usage: ''
+		});
+	}
+	
+async run(message, args) {
   
   const item = quiz[Math.floor(Math.random() * quiz.length)];
   await message.channel.send(item.q);
@@ -52,6 +63,4 @@ module.exports.run = async (bot, message, args) => {
                                 })
   }
 }
-module.exports.help = {
-name: "quiz"
 }

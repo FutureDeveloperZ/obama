@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-rrequire('../../Structure/data-retrieving')();
+require('../../Structure/data-retrieving')();
 const Command = require('../../Structure/Command');
 
 module.exports = class extends Command {

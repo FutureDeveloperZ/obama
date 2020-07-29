@@ -8,7 +8,7 @@ module.exports = class extends Command {
 			aliases: [],
 			description: 'Roats your haters',
 			category: 'Fun',
-			usage: 'roats <user>'
+			usage: 'roast <user>'
 		});
 	}
 	

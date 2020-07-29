@@ -1,5 +1,18 @@
 const { MessageEmbed } = require('discord.js');
-module.exports.run = async (bot, message, args, funcs) => {
+const Command = require('../../Structure/Command');
+
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'play a game of Rousian Roullete',
+			category: 'Fun',
+			usage: 'rr <user>'
+		});
+	}
+	
+async run(message) {
   try {
     let stuff = [
       "Boom! :boom: You're dead! :skull:",
@@ -16,11 +29,4 @@ module.exports.run = async (bot, message, args, funcs) => {
     message.reply(`Oh no, an error occurred!\n${e.message}`);
   }
 };
-
-module.exports.config = {
-  name: "rr",
-  aliases: [],
-  usage: "Play russian rulette.",
-  commandCategory: "fun",
-  cooldownTime: '5'
-};
+}

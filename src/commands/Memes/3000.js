@@ -1,8 +1,20 @@
 const request = require('node-superfetch');
 const fsn = require("fs-nextra");
+const Command = require('../../Structure/Command');
 
-module.exports.run = async (bot, message, args, funcs) => {
-	const person = message.mentions.users.first().avatarURL;
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: '3000 avatar',
+			category: 'Memes',
+			usage: ''
+		});
+	}
+	
+async run(message, args) {
+	const person = message.mentions.users.first().avatarURL || message.author.avatarURL;
     const {
       Canvas
     } = require('canvas-constructor');
@@ -31,11 +43,4 @@ module.exports.run = async (bot, message, args, funcs) => {
       throw error;
     }
 };
-
-module.exports.config = {
-  name: "3000",
-  aliases: [],
-  usage: "",
-  commandCategory: "canvas",
-  cooldownTime: '0'
-};
+}

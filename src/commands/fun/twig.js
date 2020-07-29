@@ -23,7 +23,7 @@ async run(message, args) {
   
   let Embed = new MessageEmbed()
   .setAuthor('TWIG')
-  .addField('YES')
+  .setDescription('YES')
   message.channel.send(Embed);
 }
 }

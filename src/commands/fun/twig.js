@@ -21,15 +21,19 @@ async run(message, args) {
     return message.channel.send('YOU ARE NOT TWIG DUMB ASS');
   }
   var quotes = [
-    "cockaine",
+    "Cockaine",
     "Yesyes",
     "Hot",
-    "Yes",
+    "YES",
     "HAHAHHAHAHAHAHAHAHAHAHAHAHAHA",
     "Woah dope",
     "Okie",
+    "epicccccc",
+    "XD",
+    "idiot",
     ]
   let Embed = new MessageEmbed()
+  .setColor("#f0b3fa")
   .setAuthor('TWIG QUOTES')
   .setDescription(quotes[Math.floor(Math.random() * quotes.length)])
   message.channel.send(Embed);

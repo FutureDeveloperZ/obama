@@ -62,6 +62,7 @@ module.exports = class extends Command {
 	}
 
 	async run(message, args) {
+	  console.log(args)
   if (args.length === 0) {
     return `${message.author.mention}, you need to provide some text for the cow to say!`;
   } else if (cowList.includes(args[0].toLowerCase())) {

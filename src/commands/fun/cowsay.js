@@ -1,4 +1,4 @@
-const cowsay = require("cowsay");
+const cowsay = require('cowsay');
 const cowList = ["beavis.zen",
   "bong",
   "bud-frogs",
@@ -67,12 +67,12 @@ module.exports = class extends Command {
     return message.channel.send(`${message.author.mention}, you need to provide some text for the cow to say!`);
   } else if (cowList.includes(args[0].toLowerCase())) {
     const cow = args.shift().toLowerCase();
-    return `\`\`\`\n${cowsay.say({
+    return message.channel.send(`\`\`\`\n${cowsay.say({
       text: args.join(" "),
       f: cow
-    })}\n\`\`\``;
+    })}\n\`\`\``);
   } else {
-    return `\`\`\`\n${cowsay.say({ text: args.join(" ") })}\n\`\`\``;
+    return message.channel.send(`\`\`\`\n${cowsay.say({ text: args.join(" ") })}\n\`\`\``);
   }
 };
 }

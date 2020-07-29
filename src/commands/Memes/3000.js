@@ -14,14 +14,15 @@ module.exports = class extends Command {
 	}
 	
 async run(message, args) {
-	const person = message.mentions.users.first().avatarURL() || message.author.avatarURL();
+	const mentions = message.mentions.users.first() || message.author.avatarURL();
+	let user = mentions.user.avatarURL()
     const {
       Canvas
     } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.reply("You didn't mention a user.");
-    const getSlapped = async (person) => {
+    const getSlapped = async (user) => {
       const plate = await fsn.readFile('./assets/images/3000-years.png');
-      const png = person.replace('.gif', '.png');
+      const png = user.replace('.gif', '.png');
       const {
         body
       } = await request.get(png);

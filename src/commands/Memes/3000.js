@@ -14,7 +14,7 @@ module.exports = class extends Command {
 	}
 	
 async run(message, args) {
-	const person = message.mentions.users.first().avatarURL || message.author.avatarURL;
+	const person = message.mentions.users.first().avatarURL() || message.author.avatarURL();
     const {
       Canvas
     } = require('canvas-constructor');

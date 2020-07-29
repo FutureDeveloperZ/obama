@@ -54,10 +54,10 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: [],
+			aliases: ['cow'],
 			description: 'Makes cow say',
 			category: 'Fun',
-			usage: 'cow [user]'
+			usage: 'cow [text]'
 		});
 	}
 

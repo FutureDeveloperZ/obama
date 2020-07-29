@@ -28,7 +28,7 @@ let embed = new Discord.MessageEmbed()
       .setColor(config.red);
 
     message.channel.send(embed)
-      .then(message => client.destroy())
+      .then(message => this.client.destroy())
       }
   }
 }

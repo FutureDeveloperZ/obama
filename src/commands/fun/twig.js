@@ -31,10 +31,11 @@ async run(message, args) {
     "epicccccc",
     "XD",
     "idiot",
+    "Yayyy",
     ]
   let Embed = new MessageEmbed()
   .setColor("#f0b3fa")
-  .setAuthor('TWIG QUOTES')
+  .setAuthor('twig QUOTES')
   .setDescription(quotes[Math.floor(Math.random() * quotes.length)])
   message.channel.send(Embed);
 }

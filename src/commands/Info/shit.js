@@ -1,17 +1,19 @@
 const Command = require('../../Structure/Command');
 const { MessageEmbed } = require('discord.js');
 
-module.exports = class Help extends Command {
-    constructor(client) {
-        super(client, {
-            name: 'shit',
-            aliases: ['sh'],
-            description: 'Get a list of commands that I offer!',
-            usage: '[Command?]'
-        });
-    }
+module.exports = class extends Command {
+  
+constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'SECRET',
+			category: 'Fun',
+			usage: 'SECRET'
+		});
+	}
 
-    async run(message, args) {
+
+async run(message, args) {
         if (args[0]) {
             const cmd = this.client.handler.commands.get(args[0]) || this.client.handler.commands.get(this.client.handler.aliases.get(args[0]));
             if (!cmd || cmd.devOnly) return message.channel.send('I don\'t have that command :|');

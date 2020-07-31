@@ -32,6 +32,7 @@ async run(message, args) {
     "XD",
     "idiot",
     "Yayyy",
+    "Danny fucking sucks",
     ]
   let Embed = new MessageEmbed()
   .setColor("#f0b3fa")

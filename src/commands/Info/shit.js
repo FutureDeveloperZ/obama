@@ -30,23 +30,23 @@ async run(message, args) {
             system: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('System Commands', this.client.user.displayAvatarURL())
-                .setDescription(`These are some cool and useful commands, that could help you out 😎\n\n**Commands:**\n${this.client.handler.commands.filter(c => c.category === 'system').map(c => `\`${c.name}\``).join(', ')}`),
+                .setDescription(`These are some cool and useful commands, that could help you out 😎\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'system').map(c => `\`${c.name}\``).join(', ')}`),
             music: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('Music Commands', this.client.user.displayAvatarURL())
-                .setDescription(`Want to vibe 🎵 to some music? These should be the good fit for you!\n\n**Commands:**\n${this.client.handler.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
+                .setDescription(`Want to vibe 🎵 to some music? These should be the good fit for you!\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
             image: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('Image Commands', this.client.user.displayAvatarURL())
-                .setDescription(`You can enact actions upon other users, or make me do them to you! >:3\n\n**Commands:**\n${this.client.handler.commands.filter(c => c.category === 'image').map(c => `\`${c.name}\``).join(', ')}`),
+                .setDescription(`You can enact actions upon other users, or make me do them to you! >:3\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'image').map(c => `\`${c.name}\``).join(', ')}`),
             imgmanip: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('Image Manipulation Commands', this.client.user.displayAvatarURL())
-                .setDescription(`Manipulate someones avatar, have fun :D\n\n**Commands:**\n${this.client.handler.commands.filter(c => c.category === 'imgmanip').map(c => `\`${c.name}\``).join(', ')}`),
+                .setDescription(`Manipulate someones avatar, have fun :D\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'imgmanip').map(c => `\`${c.name}\``).join(', ')}`),
             nsfw: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('NSFW Commands', this.client.user.displayAvatarURL())
-                .setDescription(`It's lewd, thats all I can say.\n\n**Commands:**\n${this.client.handler.commands.filter(c => c.category === 'nsfw').map(c => `\`${c.name}\``).join(', ')}`)
+                .setDescription(`It's lewd, thats all I can say.\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'nsfw').map(c => `\`${c.name}\``).join(', ')}`)
         };
         const msg = await message.channel.send(
             new MessageEmbed()

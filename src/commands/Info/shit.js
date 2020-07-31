@@ -16,25 +16,31 @@ constructor(...args) {
 async run(message, args) {
         if (args[0]) {
             const cmd = this.client.handler.commands.get(args[0]) || this.client.handler.commands.get(this.client.handler.aliases.get(args[0]));
-            if (!cmd || cmd.devOnly) return message.channel.send('I don\'t have that command :|');
-            return message.channel.send(
-                new MessageEmbed()
-                    .setColor(this.client.color)
-                    .setAuthor(`${cmd.name}`, this.client.user.displayAvatarURL())
-                    .setDescription(cmd.description)
-                    .addField('Aliases', cmd.aliases.join(', ') || 'None', true)
-                    .addField('Usage', `\`${cmd.usage}\``, true)
-            );
+            if (command) {
+			const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
+
+			if (!cmd) return message.channel.send(`Invalid Command named. \`${command}\``);
+
+			embed.setAuthor(`${this.client.utils.capitalise(cmd.name)} Command Help`, this.client.user.displayAvatarURL());
+			embed.setDescription([
+				`**❯ Aliases:** ${cmd.aliases.length ? cmd.aliases.map(alias => `\`${alias}\``).join(' ') : 'No Aliases'}`,
+				`**❯ Description:** ${cmd.description}`,
+				`**❯ Category:** ${cmd.category}`,
+				`**❯ Usage:** ${cmd.usage}`
+			]);
+
+			return message.channel.send(embed);
         }
+      }
         const pages = {
             system: new MessageEmbed()
-                .setColor(this.client.color)
+                .setColor('BlUE')
                 .setAuthor('System Commands', this.client.user.displayAvatarURL())
                 .setDescription(`These are some cool and useful commands, that could help you out 😎\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'system').map(c => `\`${c.name}\``).join(', ')}`),
             music: new MessageEmbed()
-                .setColor(this.client.color)
-                .setAuthor('Music Commands', this.client.user.displayAvatarURL())
-                .setDescription(`Want to vibe 🎵 to some music? These should be the good fit for you!\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
+                .setColor('PINK')
+                .setAuthor('Anime Commands <:Senke:738856241958223932>', this.client.user.displayAvatarURL())
+                .setDescription(`Check some anime, i know anime? ah\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
             image: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('Image Commands', this.client.user.displayAvatarURL())
@@ -50,12 +56,12 @@ async run(message, args) {
         };
         const msg = await message.channel.send(
             new MessageEmbed()
-                .setColor(this.client.color)
+                .setColor('BLUE')
                 .setAuthor('Help', this.client.user.displayAvatarURL())
                 .setDescription(`**React** with the emojis below to get info on that topic.
 🏘️ -  **Return here**
 ⚒️ - **System**
-🎵 - **Music**
+<:Senke:738856241958223932> - **Music**
 📷 - **Image**
 🔧 - **Image Manipulation**${message.channel.nsfw ? '\n🔞 - **NSFW**' : ''}
 ❌ - **Stop and delete this help menu**

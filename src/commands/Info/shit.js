@@ -31,7 +31,7 @@ async run(message, args) {
 			return message.channel.send(embed);
         }
       }
-      const senke = message.guild.emojis.cache.find(emoji => emoji.name === '<:Senke:738856241958223932>');
+      // const senke = message.guild.emojis.cache.find(emoji => emoji.name === '<:Senke:738856241958223932>');
         const pages = {
             system: new MessageEmbed()
                 .setColor('BlUE')
@@ -40,7 +40,7 @@ async run(message, args) {
             anime: new MessageEmbed()
                 .setColor('PINK')
                 .setAuthor('Anime Commands <:Senke:738856241958223932>', this.client.user.displayAvatarURL())
-                .setDescription(`Check some anime, i know anime? ah\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
+                .setDescription(`Check some anime, i know anime? ah\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'Anime').map(c => `\`${c.name}\``).join(', ')}`),
             image: new MessageEmbed()
                 .setColor(this.client.color)
                 .setAuthor('Image Commands', this.client.user.displayAvatarURL())

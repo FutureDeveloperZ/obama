@@ -31,6 +31,7 @@ async run(message, args) {
 			return message.channel.send(embed);
         }
       }
+      const senke = message.guild.emojis.cache.find(emoji => emoji.name === 'Senke');
         const pages = {
             system: new MessageEmbed()
                 .setColor('BlUE')
@@ -68,7 +69,7 @@ async run(message, args) {
         );
         await msg.react('🏘️');
         await msg.react('⚒️');
-        await msg.react('<:Senke:738856241958223932>');
+        await msg.react('senke');
         await msg.react('📷');
         await msg.react('🔧');
         if (message.channel.nsfw) await msg.react('🔞');
@@ -98,7 +99,7 @@ async run(message, args) {
             );
             const e = {
                 '⚒️': 'system',
-                '<:Senke:738856241958223932>': 'anime',
+                'senke': 'anime',
                 '📷': 'image',
                 '🔧': 'imgmanip',
                 '🔞': 'nsfw'

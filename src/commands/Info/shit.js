@@ -69,7 +69,7 @@ async run(message, args) {
         );
         await msg.react('🏘️');
         await msg.react('⚒️');
-        await msg.react('senke');
+        await msg.react('738856241958223932');
         await msg.react('📷');
         await msg.react('🔧');
         if (message.channel.nsfw) await msg.react('🔞');
@@ -99,7 +99,7 @@ async run(message, args) {
             );
             const e = {
                 '⚒️': 'system',
-                'senke': 'anime',
+                '738856241958223932': 'anime',
                 '📷': 'image',
                 '🔧': 'imgmanip',
                 '🔞': 'nsfw'

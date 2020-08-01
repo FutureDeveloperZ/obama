@@ -15,7 +15,6 @@ constructor(...args) {
 
 async run(message, args) {
         if (args[0]) {
-            const cmd = this.client.handler.commands.get(args[0]) || this.client.handler.commands.get(this.client.handler.aliases.get(args[0]));
             if (command) {
 			const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
 
@@ -37,7 +36,7 @@ async run(message, args) {
                 .setColor('BlUE')
                 .setAuthor('System Commands', this.client.user.displayAvatarURL())
                 .setDescription(`These are some cool and useful commands, that could help you out 😎\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'system').map(c => `\`${c.name}\``).join(', ')}`),
-            music: new MessageEmbed()
+            anime: new MessageEmbed()
                 .setColor('PINK')
                 .setAuthor('Anime Commands <:Senke:738856241958223932>', this.client.user.displayAvatarURL())
                 .setDescription(`Check some anime, i know anime? ah\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'music').map(c => `\`${c.name}\``).join(', ')}`),
@@ -46,11 +45,11 @@ async run(message, args) {
                 .setAuthor('Image Commands', this.client.user.displayAvatarURL())
                 .setDescription(`You can enact actions upon other users, or make me do them to you! >:3\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'image').map(c => `\`${c.name}\``).join(', ')}`),
             imgmanip: new MessageEmbed()
-                .setColor(this.client.color)
+                .setColor('BLUE')
                 .setAuthor('Image Manipulation Commands', this.client.user.displayAvatarURL())
                 .setDescription(`Manipulate someones avatar, have fun :D\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'imgmanip').map(c => `\`${c.name}\``).join(', ')}`),
             nsfw: new MessageEmbed()
-                .setColor(this.client.color)
+                .setColor('BLUE')
                 .setAuthor('NSFW Commands', this.client.user.displayAvatarURL())
                 .setDescription(`It's lewd, thats all I can say.\n\n**Commands:**\n${this.client.commands.filter(c => c.category === 'nsfw').map(c => `\`${c.name}\``).join(', ')}`)
         };
@@ -61,7 +60,7 @@ async run(message, args) {
                 .setDescription(`**React** with the emojis below to get info on that topic.
 🏘️ -  **Return here**
 ⚒️ - **System**
-<:Senke:738856241958223932> - **Music**
+<:Senke:738856241958223932> - **Anime**
 📷 - **Image**
 🔧 - **Image Manipulation**${message.channel.nsfw ? '\n🔞 - **NSFW**' : ''}
 ❌ - **Stop and delete this help menu**
@@ -69,7 +68,7 @@ async run(message, args) {
         );
         await msg.react('🏘️');
         await msg.react('⚒️');
-        await msg.react('🎵');
+        await msg.react('<:Senke:738856241958223932>');
         await msg.react('📷');
         await msg.react('🔧');
         if (message.channel.nsfw) await msg.react('🔞');
@@ -86,12 +85,12 @@ async run(message, args) {
             }
             if (name === '🏘️') msg.edit(
                 new MessageEmbed()
-                    .setColor(this.client.color)
+                    .setColor('BLUE')
                     .setAuthor('Help', this.client.user.displayAvatarURL())
                     .setDescription(`**React** with the emojis below to get info on that topic.
                         🏘️ -  **Return here**
                         ⚒️ - **System**
-                        🎵 - **Music**
+                        <:Senke:738856241958223932> - **Anime**
                         📷 - **Image**
                         🔧 - **Image Manipulation**${message.channel.nsfw ? '\n🔞 - **NSFW**' : ''}
                         ❌ - **Stop and delete this help menu**
@@ -99,7 +98,7 @@ async run(message, args) {
             );
             const e = {
                 '⚒️': 'system',
-                '🎵': 'music',
+                '<:Senke:738856241958223932>': 'anime',
                 '📷': 'image',
                 '🔧': 'imgmanip',
                 '🔞': 'nsfw'

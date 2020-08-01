@@ -31,7 +31,7 @@ async run(message, args) {
 			return message.channel.send(embed);
         }
       }
-      const senke = message.guild.emojis.cache.find(emoji => emoji.name === 'Senke');
+      const senke = message.guild.emojis.cache.find(emoji => emoji.name === '<:Senke:738856241958223932>');
         const pages = {
             system: new MessageEmbed()
                 .setColor('BlUE')

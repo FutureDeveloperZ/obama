@@ -7,9 +7,9 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: [],
-			description: '3000 avatar',
+			description: 'Basically u just suck',
 			category: 'Memes',
-			usage: ''
+			usage: 'yousuck <user>'
 		});
 	}
 	

@@ -17,7 +17,7 @@ async run(message, args) {
   const {
     Canvas
   } = require('canvas-constructor');
-  if (message.mentions.users.size < 1) return send("You didn't mention a user!");
+  if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user!");
   let a = message.mentions.users.first();
   const getSlapped = async (person) => {
     const plate = await fsn.readFile('./src/assets/images/suck.png');

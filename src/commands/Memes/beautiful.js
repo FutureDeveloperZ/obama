@@ -17,7 +17,7 @@ async run(message, args) {
     const {
       Canvas
     } = require('canvas-constructor');
-    if (message.mentions.users.size < 1) return send("You didn't mention a user to make beautiful.");
+    if (message.mentions.users.size < 1) return message.channel.send("You didn't mention a user to make beautiful.");
     const getSlapped = async (person) => {
       const plate = await fsn.readFile('./src/assets/images/beautiful.png');
       const png = person.replace('.gif', '.png');

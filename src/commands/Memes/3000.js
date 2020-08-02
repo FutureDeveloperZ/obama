@@ -21,7 +21,7 @@ async run(message, args) {
     } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.reply("You didn't mention a user.");
     const getSlapped = async (user) => {
-      const plate = await fsn.readFile('./assets/images/3000-years.png');
+      const plate = await fsn.readFile('./src/assets/images/3000-years.png');
       const png = user.replace('.gif', '.png');
       const {
         body

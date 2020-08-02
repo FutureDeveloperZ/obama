@@ -19,7 +19,7 @@ async run(message, args) {
         } = require('canvas-constructor');
         if (message.mentions.users.size < 1) return message.channel.send("No mentions found in your message.");
         const getSlapped = async (person) => {
-            const plate = await fsn.readFile('./assets/images/bob-ross.png');
+            const plate = await fsn.readFile('./src/assets/images/bob-ross.png');
             const png = person.replace('.gif', '.png');
             const {
                 body

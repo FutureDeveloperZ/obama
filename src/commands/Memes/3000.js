@@ -33,7 +33,7 @@ async run(message, args) {
       .toBuffer();
     };
     try {
-        const result = await getSlapped(person);
+        const result = await getSlapped(user);
         await message.channel.send({
           files: [{
             attachment: result,

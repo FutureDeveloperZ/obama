@@ -19,8 +19,8 @@ async run(message, args) {
     const botPicked = validPicks[Math.floor(Math.random() * validPicks.length)];
     //Rock
     if (userPick == "rock" && botPicked == "rock") return messagee.channel.send(`You picked ${userPick} and I picked ${botPicked}. It's a tie!`);
-    if (userPick == "rock" && botPicked == "paper") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}. You beat me! :rage:`);
-    if (userPick == "rock" && botPicked == "scrissors") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}. I beat you! :sweat_smile:`);
+    if (userPick == "rock" && botPicked == "paper") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}. I beat you! :sweat_smile:`);
+    if (userPick == "rock" && botPicked == "scrissors") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}.You beat me! :rage:`);
     //Paper
     if (userPick == "paper" && botPicked == "paper") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}. It's a tie!`);
     if (userPick == "paper" && botPicked == "rock") return message.channel.send(`You picked ${userPick} and I picked ${botPicked}. You beat me! :rage:`);

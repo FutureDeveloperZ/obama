@@ -14,15 +14,15 @@ module.exports = class extends Command {
 	}
 	
 async run(message, args) {
-	const target = message.mentions.users.first() || message.author;
-	const user = target.avatarURL();
+	const target = message.mentions.users.first().displayAvatarURL({ format: 'jpg' });
+	// const user = target.avatarURL();
     const {
       Canvas
     } = require('canvas-constructor');
     if (message.mentions.users.size < 1) return message.reply("You didn't mention a user.");
-    const getSlapped = async (user) => {
+    const getSlapped = async (target) => {
       const plate = await fsn.readFile('./src/assets/images/3000-years.png');
-      const png = user.replace('.gif', '.png');
+      const png = target.replace('.gif', '.png');
       const {
         body
       } = await request.get(png);
@@ -33,7 +33,7 @@ async run(message, args) {
       .toBuffer();
     };
     try {
-        const result = await getSlapped(user);
+        const result = await getSlapped(target);
         await message.channel.send({
           files: [{
             attachment: result,

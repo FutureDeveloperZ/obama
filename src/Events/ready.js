@@ -16,7 +16,7 @@ module.exports = class extends Event {
     console.log(`Log ${this.client.events.size} events`);
     
   this.client.setInterval(() => {
-    
+    let url = `https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`
     
 /*request.post(`https://discordbots.org/api/bots/${this.client.user.id}/stats`)
       .set('Authorization', dblKey)
@@ -24,8 +24,7 @@ module.exports = class extends Event {
       .then(() => console.log(`Posted to dbl.`))
       .catch((e) => console.error(e.message));*/
       // bots .gg
-      request.post(`https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`)
-      .set(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+      request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
         'Content-Type': 'application/json' }})
       .send({
         guildCount: this.client.guilds.size,
@@ -41,8 +40,7 @@ module.exports = class extends Event {
     })
     .then(() => console.log(`Posted to top.gg.`))
     .catch((e) => console.error(e.message));*/
-    request.post(`https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`)
-    .set(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+    request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
         'Content-Type': 'application/json' }})
     .send({
       guildCount: this.client.guilds.size,

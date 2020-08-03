@@ -24,7 +24,7 @@ let url = `https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`;
       .then(() => console.log(`Posted to dbl.`))
       .catch((e) => console.error(e.message));*/
       // bots .gg
-      request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+      request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDkwNjYwfQ.IGhxjT8KS95-IMaClN_blCo1tChHNkFNJsKfHJMvdDk',
         'Content-Type': 'application/json' }})
       .send({
         guildCount: this.client.guilds.size,
@@ -40,7 +40,7 @@ let url = `https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`;
     })
     .then(() => console.log(`Posted to top.gg.`))
     .catch((e) => console.error(e.message));*/
-    request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+    request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDkwNjYwfQ.IGhxjT8KS95-IMaClN_blCo1tChHNkFNJsKfHJMvdDk',
         'Content-Type': 'application/json' }})
     .send({
       guildCount: this.client.guilds.size,

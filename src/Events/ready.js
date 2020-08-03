@@ -25,7 +25,8 @@ module.exports = class extends Event {
       .catch((e) => console.error(e.message));*/
       // bots .gg
       request.post(`https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`)
-      .set('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI')
+      .set(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+        'Content-Type': 'application/json' }})
       .send({
         guildCount: this.client.guilds.size,
       })
@@ -41,7 +42,8 @@ module.exports = class extends Event {
     .then(() => console.log(`Posted to top.gg.`))
     .catch((e) => console.error(e.message));*/
     request.post(`https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`)
-    .set('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI')
+    .set(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDY3MjI1fQ.gKTk9xnbMZfvs4VNCSJ6IkHZo_4Hq0NPlS2M0K0VBgI',
+        'Content-Type': 'application/json' }})
     .send({
       guildCount: this.client.guilds.size,
     })

@@ -28,10 +28,10 @@ module.exports = class extends Event {
 			// AFK Shit
 			
     if (message.content.includes(message.mentions.users.first())) {
-    let mentioned = client.afk.get(message.mentions.users.first().id);
+    let mentioned = this.client.afk.get(message.mentions.users.first().id);
     if (mentioned) message.channel.send(`${mentioned.usertag} is currently afk. Reason: ${mentioned.reason}`);
   }
-  let afkcheck = client.afk.get(message.author.id);
+  let afkcheck = this.client.afk.get(message.author.id);
   if (afkcheck) return [client.afk.delete(message.author.id), message.reply(`you have been removed from the afk list!`).then(msg => msg.delete({ timeout: 5000 }))];
 
   }

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { version } = require('../../package.json');
+const { version } = require('../../../package.json');
 const Command = require('../../Structure/Command');
 
 module.exports = class extends Command {

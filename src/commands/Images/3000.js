@@ -8,7 +8,7 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: [],
 			description: 'Is been 3,000 Years',
-			category: 'Memes',
+			category: 'Images',
 			usage: '3000 <user>'
 		});
 	}

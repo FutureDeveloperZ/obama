@@ -6,10 +6,10 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['bobross'],
-			description: 'Bobross made your profile\?',
-			category: 'Memes',
-			usage: 'paint <user>'
+			aliases: ['graph'],
+			description: 'Look at my Photograph',
+			category: 'Images',
+			usage: 'photograph <user>'
 		});
 	}
 	
@@ -19,17 +19,17 @@ async run(message, args) {
         } = require('canvas-constructor');
         if (message.mentions.users.size < 1) return message.channel.send("No mentions found in your message.");
         const getSlapped = async (person) => {
-            const plate = await fsn.readFile('./src/assets/images/bob-ross.png');
+            const plate = await fsn.readFile('./src/assets/images/look-at-this-photograph.png');
             const png = person.replace('.gif', '.png');
             const {
                 body
             } = await request.get(png);
-            return new Canvas(600, 755)
-                .resetTransformation()
-                .rotate(3 * (Math.PI / 180))
-                .addImage(body, 30, 19, 430, 430)
-                .rotate(-3 * (Math.PI / 180))
-                .addImage(plate, 0, 0, 600, 755)
+            return new Canvas(620, 349)
+                .setColor(0x00A2E8)
+                .addImage(plate, 0, 0, 620, 349)
+                .rotate(-13.5 * (Math.PI / 180))
+                .addImage(body, 280, 218, 175, 125)
+                .rotate(13.5 * (Math.PI / 180))
                 .toBuffer();
         };
         try {
@@ -38,7 +38,7 @@ async run(message, args) {
             await message.channel.send({
                 files: [{
                     attachment: result,
-                    name: 'paint.png'
+                    name: 'photograph.png'
                 }]
             });
         } catch (error) {

@@ -4,6 +4,15 @@ module.exports = class extends Event {
   
   
   async run(message) {
+			
+    if (message.content.includes(message.mentions.users.first())) {
+    let mentioned = this.client.afk.get(message.mentions.users.first().id);
+    if (mentioned) message.channel.send(`${mentioned.usertag} is currently afk. Reason: ${mentioned.reason}`);
+  }
+  let afkcheck = this.client.afk.get(message.author.id);
+  if (afkcheck) return [this.client.afk.delete(message.author.id), message.reply(`you have been removed from the afk list!`).then(msg => msg.delete({ timeout: 5000 }))];
+    
+    
 			const mentionRegex = RegExp(`^<@!${this.client.user.id}>$`);
 			const mentionRegexPrefix = RegExp(`^<@!${this.client.user.id}> `);
 
@@ -25,14 +34,5 @@ module.exports = class extends Event {
 				command.run(message, args);
 			}
 			
-			// AFK Shit
-			
-    if (message.content.includes(message.mentions.users.first())) {
-    let mentioned = this.client.afk.get(message.mentions.users.first().id);
-    if (mentioned) message.channel.send(`${mentioned.usertag} is currently afk. Reason: ${mentioned.reason}`);
-  }
-  let afkcheck = this.client.afk.get(message.author.id);
-  if (afkcheck) return [client.afk.delete(message.author.id), message.reply(`you have been removed from the afk list!`).then(msg => msg.delete({ timeout: 5000 }))];
-
   }
 };

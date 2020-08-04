@@ -1,23 +1,35 @@
-const config = require('../../config.json');
+const config = require('../../../config.json');
 const Discord = require('discord.js')
 const modRole = config.modRole;
 const logchann = config.logsChannel;
 const ms = require('ms');
+const Command = require('../../Structure/Command');
 
-module.exports.run = async(client, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Mute a user',
+			category: 'Moderation',
+			usage: 'mute <user>'
+		});
+	}
+
+	async run(message, args) {
 
     message.delete(message.author);
 
-    if (!message.member.hasPermission('MANAGE_ROLES') || !message.guild.owner) 
+    if (!message.member.hasPermission(['MANAGE_ROLES', 'ADMINISTRATOR']) || !message.guild.owner) 
       return message.channel.send(`Sorry, <@` + message.author.id + `>, you do not have the necessary permission to use this command (Missing \`\`MANAGE_ROLES\`\` permission).`);
 
-    if (!message.member.me.hasPermission('MANAGE_ROLES'))
+    if (!message.member.me.hasPermission(['MANAGE_ROLES', 'ADMINISTRATOR']))
        return message.channel.send(`Sorry, <@`+ message.author.id + `>, I dont have the correct Permssions to continue (Missing \`\`MANAGE_ROLES\`\` permissions). `)
 
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
     if (!tomute) return message.channel.send("Please mention a user in the following form:\n\nMention : ``@user#1234``\nDiscord ID : ``251455597738721280``");
     
-    if(tomute.id === client.user.id) 
+    if(tomute.id === this.client.user.id) 
       return message.channel.send("Hahaha, i can't mute my self u dummy");
 
     if (tomute.user.bot) 
@@ -26,14 +38,14 @@ module.exports.run = async(client, message, args) => {
     if(tomute.id === message.author.id) 
       return message.channel.send("U can't mute yourself u dummy");
 
-    if (tomute.hasPermission('MANAGE_CHANNELS')) 
+    if (tomute.hasPermission(['KICK_MEMBERS', 'ADMINISTRATOR'])) 
       return message.channel.send("It's impossible to mute a moderator!");
 
     if (tomute.roles.cache.find(role => role.name === "Muted")) {
       return message.channel.send(`<@${tomute.id}> is already muted!`);
     }
 
-    if(tomute.hasPermission("KICK_MEMBERS")) {
+    if(tomute.hasPermission(['KICK_MEMBERS', 'ADMINISTRATOR'])) {
       message.channel.send("U can't mute an user because u lack permission ! (Missing \`\`KICK_MEMBER\`\` permission)");
     }
  
@@ -72,11 +84,11 @@ module.exports.run = async(client, message, args) => {
 
     const logchan = message.guild.channels.cache.find(c => logchann.includes(c.name))
     setTimeout(function() {
-      if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logchan) {
+      if (message.guild.me.hasPermission(['MANAGE_CHANNELS', 'ADMINISTRATOR']) && !logchan) {
         message.guild.channels.create('logs').catch(error => message.channel.send(`A error occurred while creating the \"logs\" : ${error}`));
       }
     }, 2000);
-    if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logchan) {
+    if (!message.guild.me.hasPermission(['MANAGE_CHANNELS', 'ADMINISTRATOR']) && !logchan) {
       console.log('The \'logs\' channel does not exist, and i tried to create it but I lack permissions !')
     }
     logchan.send({embed: {
@@ -117,7 +129,7 @@ module.exports.run = async(client, message, args) => {
         }],
         timestamp: new Date(),
         footer: {
-          icon_url: "https://cdn.discordapp.com/avatars/"+ client.user.id +"/"+ client.user.avatar +".png?size=128",
+          icon_url: "https://cdn.discordapp.com/avatars/"+ this.client.user.id +"/"+ this.client.user.avatar +".png?size=128",
           text: "Obama"
         }
       }
@@ -125,8 +137,5 @@ module.exports.run = async(client, message, args) => {
 
   }
 
-module.exports.help = {
-    name: "mute",
-    enable: true
 };
 

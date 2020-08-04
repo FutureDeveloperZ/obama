@@ -1,15 +1,27 @@
-const config = require('../../config.json');
+const config = require('../../../config.json');
 const Discord = require('discord.js')
 const modRole = config.modRole;
 const logchann = config.logsChannel;
+const Command = require('../../Structure/Command');
 
-module.exports.run = async (bot, message, args) => {
+module.exports = class extends Command {
+
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Ban a user',
+			category: 'Moderation',
+			usage: 'ban <user>'
+		});
+	}
+
+	async run(message, args) {
    // message.delete(message.author);
    
-    console.log(config)
+  
    
-    if(!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send("I dont have enough Permssions to execute this command");
-    if(!message.member.hasPermission('BAN_MEMBERS') || !message.guild.owner) return message.channel.send("Hey <@"+ message.author.id+"> ! You don't have the permission to do that !");
+    if(!message.guild.me.hasPermission(['BAN_MEMBERS', 'ADMINISTRATOR'])) return message.channel.send("I dont have enough Permssions to execute this command");
+    if(!message.member.hasPermission(['BAN_MEMBERS', 'ADMINISTRATOR']) || !message.guild.owner) return message.channel.send("Hey <@"+ message.author.id+"> ! You don't have the permission to do that !");
  
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!member) return message.channel.send("Please mention a user first.");
@@ -35,12 +47,12 @@ module.exports.run = async (bot, message, args) => {
 
     const logchan = message.guild.channels.cache.find(c=>logchann.includes(c.name))
         setTimeout(function (){
-            if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logchan) {
+            if (message.guild.me.hasPermission(['MANAGE_CHANNELS', 'ADMINISTRATOR']) && !logchan) {
                 message.guild.channels.create('logs').catch(error => message.channel.send(`An error occured during the creation of the \'Logs\' Channel\n\nError : ${error}`));
             }
         }, 2000); 
 
-    if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logchan) {
+    if (!message.guild.me.hasPermission(['MANAGE_CHANNELS', 'ADMINISTRATOR']) && !logchan) {
         message.channel.send("The \'Logs\' channel does not exist, i tried to create it but i lack permisions")
     }
     logchan.send({embed: {
@@ -87,13 +99,11 @@ module.exports.run = async (bot, message, args) => {
     ],
         timestamp: new Date(),
         footer: {
-        icon_url: "https://cdn.discordapp.com/avatars/"+bot.user.id+ "/"+bot.user.avatar+".png",
+        icon_url: "https://cdn.discordapp.com/avatars/"+this.client.user.id+ "/"+this.client.user.avatar+".png",
         text: ""
         }
     }
   });
 }; 
 
-module.exports.help = {
-    name: 'ban'
 };

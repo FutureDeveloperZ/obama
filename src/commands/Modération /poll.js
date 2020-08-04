@@ -1,7 +1,18 @@
 const { MessageEmbed } = require("discord.js");
+const Command = require('../../Structure/Command');
 
+module.exports = class extends Command {
 
-module.exports.run = async (bot, message, args) => {
+	constructor(...args) {
+		super(...args, {
+			aliases: [],
+			description: 'Make a poll',
+			category: 'Moderation',
+			usage: 'poll <question>'
+		});
+	}
+
+	async run(message, args) {
 
 let arg = args.join(" ")
 
@@ -16,17 +27,17 @@ let poll = new MessageEmbed()
 .setColor("RANDOM")
 .setTitle("Poll Command")
 .addField("React Below To Vote", `${arg}`, true)
-.setFooter(`Requested by ${message.author.tag}`)
+.setTimestamp()
 
 let msg = await message.channel.send(poll)
 await msg.react("👍")
+await msg.react("🤷")
 await msg.react("👎")
 
+
 message.delete();
-console.log(`${message.author.tag} Used The Poll Command In ${message.guild.name}`)
-console.log(`The Question Was ${args}`)
+
 }
 
-module.exports.help = {
-  name: "poll"
+
 }

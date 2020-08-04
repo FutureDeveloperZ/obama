@@ -21,8 +21,7 @@ async run(message, args) {
     .setColor('#3f0ae3')
     .setAuthor(msg.author, msg.avatar)
     .setDescription(msg.content)
-    .setTimestamp()
-    .setFooter();
+    .setTimestamp();
     if(msg.image)embed.setImage(msg.image)
     
     message.channel.send(embed)

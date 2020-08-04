@@ -14,7 +14,9 @@ module.exports = class extends Event {
     console.log(`Log ${this.client.commands.size} commands`);
     console.log(`Log ${this.client.aliases.size} Aliases`)
     console.log(`Log ${this.client.events.size} events`);
-let url = `https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`;
+    
+    
+    let url = `https://discord.bots.gg/api/v1/bots/${this.client.user.id}/stats`;
     
   this.client.setInterval(() => {
     

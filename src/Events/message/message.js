@@ -4,7 +4,7 @@ module.exports = class extends Event {
   
   
   async run(message) {
-    this.client.afk = new Map()
+    this.client.afk = new Map();
 			
     if (message.content.includes(message.mentions.users.first())) {
     let mentioned = this.client.afk.get(message.mentions.users.first().id);

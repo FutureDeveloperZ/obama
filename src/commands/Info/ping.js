@@ -24,6 +24,4 @@ module.exports = class extends Command {
 };
 
 
-exports.help = {
-	name: "ping"
-};
+}

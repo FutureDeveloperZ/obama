@@ -12,7 +12,7 @@ module.exports = class extends Command {
 			aliases: [],
 			description: 'Mute a user',
 			category: 'Moderation',
-			usage: 'mute <user>'
+			usage: 'mute <user> [reason]'
 		});
 	}
 
@@ -58,7 +58,7 @@ module.exports = class extends Command {
             color: "#B9BBBE",
             permissions: []
           },
-          reason: `Mute an user`
+          reason: `Mute an user for breaking rules`
         })
         message.guild.channels.cache.forEach(async (channel, id) => {
           await channel.overwritePermissions([

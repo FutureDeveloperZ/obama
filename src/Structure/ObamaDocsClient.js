@@ -18,6 +18,8 @@ module.exports = class MenuDocsClient extends Client {
 		this.owners = ["282978672711827456"]
 
 		this.utils = new Util(this);
+		
+		this.afk = new Map();
 
 
 	}

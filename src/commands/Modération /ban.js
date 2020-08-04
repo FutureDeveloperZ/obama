@@ -11,7 +11,7 @@ module.exports = class extends Command {
 			aliases: [],
 			description: 'Ban a user',
 			category: 'Moderation',
-			usage: 'ban <user>'
+			usage: 'ban <user> [reason]'
 		});
 	}
 

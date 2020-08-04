@@ -22,6 +22,6 @@ module.exports = class extends Command {
 	  expensives or even a database.`)
 	  .addField(`\u200b`, `\u200b`)
 	  .addField(`\u200b`, `[DONATE HERE](https://paypal.me/pools/c/8rhYAdLdZP) Remember must have a paypal this will change in the future`)
-	  messge.channel.send(embed);
+	  message.channel.send(embed);
     }
 }

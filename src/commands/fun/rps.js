@@ -7,7 +7,7 @@ module.exports = class extends Command {
 		super(...args, {
 			aliases: [],
 			description: 'Play Rock Paper and Scissors with the bot',
-			category: 'Memes',
+			category: 'Fun',
 			usage: ''
 		});
 	}

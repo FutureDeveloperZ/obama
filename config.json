@@ -2,9 +2,9 @@
 {
   "__NOTICE:": "json FIle",
   
-  "token": "NDUxMTI5ODgxNzI0NDUyODY0.Ww3BcQ.RqGkHCtAMfJjRutvZI57aj9nOV4",
+  "token": "YOUR BOT TOKEN",
   "prefix": "t;",
-  "owners": ["282978672711827456"],
+  "owners": ["USER ID"],
   
   
   "white": "#ffffff",

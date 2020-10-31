@@ -26,7 +26,7 @@ module.exports = class extends Event {
       .then(() => console.log(`Posted to dbl.`))
       .catch((e) => console.error(e.message));*/
       // bots .gg
-      request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDkwNjYwfQ.IGhxjT8KS95-IMaClN_blCo1tChHNkFNJsKfHJMvdDk',
+      request.post(url, { headers: {Authorization: 'YOUR KEY',
         'Content-Type': 'application/json' }})
       .send({
         guildCount: this.client.guilds.size,
@@ -42,7 +42,7 @@ module.exports = class extends Event {
     })
     .then(() => console.log(`Posted to top.gg.`))
     .catch((e) => console.error(e.message));*/
-    request.post(url, { headers: {Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjgyOTc4NjcyNzExODI3NDU2IiwiaWF0IjoxNTk2NDkwNjYwfQ.IGhxjT8KS95-IMaClN_blCo1tChHNkFNJsKfHJMvdDk',
+    request.post(url, { headers: {Authorization: 'YOUR KEY',
         'Content-Type': 'application/json' }})
     .send({
       guildCount: this.client.guilds.size,
@@ -54,5 +54,4 @@ module.exports = class extends Event {
         
   }
 
-// Spare Token [eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoxLCJpZCI6IjQ0NDQ2Mzg3NTkwODMwNDkwMSIsImlhdCI6MTU5NjQ2NzYyNn0.-LhDMY_OVpWygKpZHdVw-5jlUaXoUK28Ecjdj0GU9hY]
 };

@@ -1,16 +1,21 @@
-# ★ Obama Bot
+<!--- TITLE --->
+# ★ Obama
+> Official Unmaintained Source code for Obama
 
-<img align="right" src="https://images-ext-1.discordapp.net/external/ot0MSM01GVrxBNY25Qy26kVM_lx79aYMwEo4wB3TgVA/%3Fsize%3D256/https/cdn.discordapp.com/avatars/444463875908304901/9a9a51f86e0562fafda973f8693036d5.webp" width=30%>
+<!--- IMAGE --->
+<img src="https://images-ext-1.discordapp.net/external/YLcyf_Z2kZqAjhsxyvu8oT0VvsVFBFxG4FkP8wzNX5k/https/cdn.discordapp.com/avatars/444463875908304901/c80877e5cfcce9c4b3884ee24c95fa25.webp" width=30% align="right">
 
-## ー Information
+<!--- KEY INFORMATION --->
+## ⇁ Information
 
-* Official Source Code for Obama Bot 
+   * Official Source code for Obama
 
-## ー License
+<!--- LICENSE --->
+## ⇁ License
 
-This project is licensed under the [MIT license](https://github.com/FutureDeveloperZ/Obama/blob/master/LICENSE)
+   * This project is licensed under the [MIT license.](LICENSE)
 
+<!--- SUPPORT --->
+## ⇁ Support
 
-### Credits
-
-* Thanks to [@LichKing112](https://github.com/LichKing112) for the README design lol
+   * Having troubles setting up the bot? Join our Discord server [here.](https://discord.gg/ZU8zFx8)
